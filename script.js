@@ -1,20 +1,17 @@
-var _ = require('lodash');
-var array=[1,2,3,4,5,6,7,8];
-console.log('answer:',  _.without(array, 3));
-var css=document.querySelector("h3");
-var c1=document.querySelector(".color1");
-var c2=document.querySelector(".color2");
-var bg=document.getElementById('bg');
-function setg(){
-	bg.style.background=
-	"linear-gradient(to right, "
-	+c1.value
-	+", "
-	+c2.value
-	+")";
-	css.textContent=bg.style.background+";"
-}
-c1.addEventListener("input",setg);
+const css = document.querySelector('h3');
+const [color1, color2] = document.querySelectorAll('.color')
+const body = document.querySelector('#gradient');
 
-c2.addEventListener("input",setg);
+setGradient = () => {
+	body.style.background = _linearGradient();
+	css.textContent = `${body.style.background};`;
+}
+
+_linearGradient = () => {
+	return `linear-gradient(to right, ${color1.value}, ${color2.value})`;
+}
+
+color1.addEventListener('input', setG);
+
+color2.addEventListener('input', setG);
 	
